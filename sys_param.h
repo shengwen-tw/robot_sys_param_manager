@@ -13,11 +13,12 @@
 #define SIZE_OF_PARAM_LIST(list) (sizeof(list) / sizeof(sys_param_data))
 
 enum {
-	SYS_PARAM_SUCCEED,
-	SYS_PARAM_INDEX_OUT_OF_RANGE
+	SYS_PARAM_SUCCEED = 0,
+	SYS_PARAM_INDEX_OUT_OF_RANGE = 1
 } SYS_PARARM_RETVAL;
 
 enum {
+	/* compatible with MAV_PARAM_TYPE (mavlink enum) */
 	SYS_PARAM_U8 = 1,
 	SYS_PARAM_S8 = 2,
 	SYS_PARAM_U16 = 3,
@@ -25,6 +26,7 @@ enum {
 	SYS_PARAM_U32 = 5,	
 	SYS_PARAM_S32 = 6,
 	SYS_PARAM_FLOAT = 9
+	/* not supporting uint64_t, int64_t and double */
 } SYS_PARAM_TYPE;
 
 typedef struct {
@@ -62,7 +64,5 @@ int set_sys_param_s16(int index, int16_t val);
 int set_sys_param_u32(int index, uint32_t val);
 int set_sys_param_s32(int index, int32_t val);
 int set_sys_param_float(int index, float val);
-
-
 
 #endif

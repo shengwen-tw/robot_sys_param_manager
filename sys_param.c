@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "sys_param.h"
 
-sys_param_data *sys_param_list;
+sys_param_data *sys_param_list = NULL;
 int list_size = 0;
 int list_last_index = 0;
 
